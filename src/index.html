@@ -9,21 +9,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-<!--コンポーネントをclassに書き換える-->
-<!--その理由は、state は class で動く仕組みだから。-->
+<!-- state は UI の書き換えに必要となるコンポーネントの状態を保持する仕組み-->
+<!-- Counter の state でクリックされた回数を保持する。それは constructor で管理する。-->
+<!-- render の方で、this.state の countキーを呼ぶ。-->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
 
-    //function Counter(props){
-    //  return <li style={{backgroundColor:props.color}}>0</li>;
-    //}
-
       class Counter extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {
+            count: 10
+          };
+        }
         render(){
           return(
             <li style={{backgroundColor:this.props.color}}>
-              0
+              {this.state.count}
             </li>
           );
         }
