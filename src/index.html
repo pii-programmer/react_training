@@ -9,9 +9,11 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-<!-- state は UI の書き換えに必要となるコンポーネントの状態を保持する仕組み-->
-<!-- Counter の state でクリックされた回数を保持する。それは constructor で管理する。-->
-<!-- render の方で、this.state の countキーを呼ぶ。-->
+<!--コンポーネントに state の仕組みは作れた。-->
+<!--次は、イベントを設置する。onClickでクリックした回数を増やす。-->
+<!-- this.setState でクリック回数を処理できるが、setState が実行されるタイミングはReactが自動で決めている。-->
+<!--そこで、prevState を使う。prevState には直前の値が入ってくるので、その値を使って書き換えてあげる。-->
+<!--ちなみに Reactでは、setState する度に render() が呼ばれ、その際新しい UI が再描画されている。-->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
@@ -23,9 +25,16 @@
             count: 10
           };
         }
+        countUp(){
+          this.setState(prevState => {
+            return {
+              count: prevState.count + 1
+            };
+          });
+        }
         render(){
           return(
-            <li style={{backgroundColor:this.props.color}}>
+            <li style={{backgroundColor:this.props.color}} onClick={this.countUp}>
               {this.state.count}
             </li>
           );
