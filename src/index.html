@@ -14,6 +14,7 @@
 <!-- this.setState でクリック回数を処理できるが、setState が実行されるタイミングはReactが自動で決めている。-->
 <!--そこで、prevState を使う。prevState には直前の値が入ってくるので、その値を使って書き換えてあげる。-->
 <!--ちなみに Reactでは、setState する度に render() が呼ばれ、その際新しい UI が再描画されている。-->
+<!--{this.countUp}の countUp はこのままだとエラーになる。エラーを防ぐためには、thisをbindしてあげる。-->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
@@ -24,6 +25,7 @@
           this.state = {
             count: 10
           };
+          this.countUp = this.countUp.bind(this);
         }
         countUp(){
           this.setState(prevState => {
