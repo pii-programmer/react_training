@@ -9,15 +9,22 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-  <!--babelを使って変換するのでスクリプトのtypeを指定する-->
-  <!--アロー関数(()=>{})();で書く-->
   <!--divにidを指定してUIを作る-->
   <!--ReactDOM.render(第一引数：描画したいUI, 第二引数：UIを描画する場所)-->
+
+  <!-- {} はJavaScriptの記述-->
+  <!--ReactDOM.render()の引数は、JSXで書かれている。JSXで渡せる要素は1つだけ。-->
+  <!--JSXで複数の要素を渡したい場合は、配列にするか、親要素を作りそこに子要素として複数入れる。-->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
+
+      const name = 'taguchi';
       ReactDOM.render(
-        <p>Hello!</p>,
+        <div>
+          <p>Hello! {name.toUpperCase()}</p>
+          <p>Hello! {name.toUpperCase()}</p>
+        </div>,
         document.getElementById('root')
       );
     })();
