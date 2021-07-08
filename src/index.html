@@ -9,15 +9,18 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
+  <!--Reactではコンポーネントを設定することができる。コンポーネントは要素(HTMLダグ等)を部品化する。再利用したり、要素をグループ化できる。-->
+  <!--書き方の例：<Component/> 。<アッパーキャメル型/> -->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
 
-      function showMessage(){
-        alert('Hello');
+      function Counter(){
+        return <div>0</div>;
       }
+
       ReactDOM.render(
-        <div style={{with:100, height:100, backgroundColor:'tomato'}} onClick={showMessage}></div>,
+        <Counter/>,
         document.getElementById('root')
       );
     })();
