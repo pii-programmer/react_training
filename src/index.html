@@ -9,6 +9,18 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-  
+  <!--babelを使って変換するのでスクリプトのtypeを指定する-->
+  <!--アロー関数(()=>{})();で書く-->
+  <!--divにidを指定してUIを作る-->
+  <!--ReactDOM.render(第一引数：描画したいUI, 第二引数：UIを描画する場所)-->
+  <div id="root"></div>
+  <script type="text/babel">
+    (()=>{
+      ReactDOM.render(
+        <p>Hello!</p>,
+        document.getElementById('root')
+      );
+    })();
+  </script>
 </body>
 </html>
