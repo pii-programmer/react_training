@@ -3,31 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>React Practice</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>          <!--react本体-->
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>  <!--reactの結果をブラウザのDOMに反映させるためのライブラリ-->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-  <!--divにidを指定してUIを作る-->
-  <!--ReactDOM.render(第一引数：描画したいUI, 第二引数：UIを描画する場所)-->
-
-  <!-- {} はJavaScriptの記述-->
-  <!--ReactDOM.render()の引数は、JSXで書かれている。JSXで渡せる要素は1つだけ。-->
-  <!--JSXで複数の要素を渡したい場合は、配列にするか、親要素を作りそこに子要素として複数入れる。-->
-
-  <!--閉じタグがないとエラーになる。閉じタグのないタグには最後にスラッシュを入れる。-->
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
 
-      const name = 'taguchi';
       ReactDOM.render(
-        <div>
-          <p>Hello! {name.toUpperCase()}</p>
-          <hr/>
-          <p>Hello! {name.toUpperCase()}</p>
-        </div>,
+        <div className="box"></div>,
         document.getElementById('root')
       );
     })();
