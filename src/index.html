@@ -9,9 +9,8 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-<!-- Counter の値を <div>TOTAL INVENTORY: 3</div> で管理したい。-->
-<!--そのためには、親である <div className="container"> をコンポーネントにし、state で管理する。-->
-<!--Counterコンポーネントは、もうclassである必要がないので、関数に書き直す。-->
+<!-- Counterコンポーネントを一つにし、Counterコンポーネントが複数自動生成されるように書く-->
+
   <div id="root"></div>
   <script type="text/babel">
     (()=>{
@@ -20,6 +19,14 @@
           <li style={{backgroundColor:props.counter.color}}>
             {props.counter.id}:{props.counter.count}
           </li>
+        );
+      }
+
+      function CounterList(props){
+        return(
+          <ul style={{backgroundColor:props.counter.color}}>
+            {props.counter.id}:{props.counter.count}
+          </ul>
         );
       }
 
@@ -38,11 +45,7 @@
         render(){
           return(
             <div className="container">
-              <ul>
-              <Counter counter={this.state.counters[0]}/>
-              <Counter counter={this.state.counters[1]}/>
-              <Counter counter={this.state.counters[2]}/>
-              </ul>
+              <CounterList counters={this.state.counters}/>
               <div>TOTAL INVENTORY: 3</div>
             </div>
           );
