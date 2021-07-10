@@ -9,7 +9,8 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>             <!--Babelというライブラリ。JSX等のため。-->
 </head>
 <body>
-<!-- Counterコンポーネントを一つにし、Counterコンポーネントが複数自動生成されるように書く-->
+<!-- Counterコンポーネントを一つにし、Counterコンポーネントが複数自動生成されるように CounterListを書く-->
+<!-- CounterListの関数を作って自動生成の仕組みを書く-->
 
   <div id="root"></div>
   <script type="text/babel">
@@ -23,9 +24,17 @@
       }
 
       function CounterList(props){
+        const counters = props.counters.map(counter =>{
+          return(
+            <Counter 
+            conuter={counter}
+            key={counter.id}
+            />
+          );
+        });
         return(
-          <ul style={{backgroundColor:props.counter.color}}>
-            {props.counter.id}:{props.counter.count}
+          <ul >
+            {counters}
           </ul>
         );
       }
