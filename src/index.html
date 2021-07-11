@@ -16,7 +16,7 @@
       function Counter(props) {
         return (
           <li style={{backgroundColor:props.counter.color}} onClick={() => props.countUp(props.counter)}>
-            {props.counter.id}:{props.counter.count}
+            {props.counter.id}が{props.counter.count}回です。
           </li>
         );
       }
